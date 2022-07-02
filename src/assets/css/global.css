@@ -1,0 +1,31 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  color: black;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.van-tabs__content {
+  height: 98%;
+}
+
+.van-tab__pane {
+  height: 100%;
+}

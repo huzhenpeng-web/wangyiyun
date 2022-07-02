@@ -1,32 +1,33 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+  <div class="app-container">
+    <!-- 路由占位符 -->
+    <router-view></router-view>
+    <!-- 底部播放组件 -->
+    <FooterMusic v-show="playVideoStatus"></FooterMusic>
+    <!-- 底部导航 -->
+    <BottomNav v-show="bottomNavShow"></BottomNav>
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import FooterMusic from '@/views/music/FooterMusic.vue'
+import BottomNav from '@/views/home/BottomNav.vue'
+import { mapState } from 'vuex'
+export default {
+  components: {
+    FooterMusic,
+    BottomNav
+  },
+  computed: {
+    ...mapState(['bottomNavShow', 'playVideoStatus'])
   }
+}
+</script>
+
+<style lang="less" scoped>
+.app-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 </style>
